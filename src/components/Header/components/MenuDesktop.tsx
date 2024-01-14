@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
 import Grid from '@mui/material/Grid';
-import { Box, Button } from '@mui/material';
+import { Box, Button, ListItem } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import LogoutIcon from '@mui/icons-material/Logout';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
@@ -39,11 +42,24 @@ export default function MenuDesktop() {
                     <ListItemText primary="Pamela Rojas Gonzalez" sx={{paddingRight:"15px"}} />
                     {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit sx={{position:"absolute", backgroundColor:"#FAFAFE", width:"100%", top:"49px"}}>
+                <Collapse in={!open} timeout="auto" unmountOnExit sx={{position:"absolute", backgroundColor:"#FAFAFE", width:"100%", top:"49px"}}>
                   <List component="div" disablePadding>
+                  <ListItem disablePadding>
                     <ListItemButton>
-                      <ListItemText primary="Cerrar sesión" />
+                      <ListItemIcon sx={{minWidth:"min-content", paddingRight:"10px"}}>
+                        <ManageAccountsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Mi cuenta" />
                     </ListItemButton>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon sx={{minWidth:"min-content", paddingRight:"10px"}}>
+                        <LogoutIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Cerrar sesión" />
+                    </ListItemButton>                  
+                  </ListItem>
                   </List>
                 </Collapse>
             </List>
