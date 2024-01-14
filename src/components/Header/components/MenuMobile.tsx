@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Box, Grid, Drawer, List, ListItem, ListItemButton, ListItemText, Button, IconButton, Divider } from '@mui/material';
+import { Box, Grid, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, IconButton, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function MenuMobile() {
 
@@ -40,6 +41,16 @@ export default function MenuMobile() {
                 ))}
             </List>
             <Divider />
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon sx={{minWidth:"min-content", paddingRight:"10px"}}>
+                        <LogoutIcon />
+                      </ListItemIcon>
+                    <ListItemText primary={"Cerrar sesión"} />
+                    </ListItemButton>
+                </ListItem>            
+            </List>
         </Box>
   );
 
