@@ -40,9 +40,9 @@ export default function MenuDesktop() {
             <List sx={{width: "fit-content", ":hover":{backgroundColor:"none"}, padding:"0", position:"relative"}}>
                 <ListItemButton onClick={handleClick} sx={{":hover":{backgroundColor:"unset"}, padding:"0"}}>
                     <ListItemText primary="Pamela Rojas Gonzalez" sx={{paddingRight:"15px"}} />
-                    {open ? <ExpandLess /> : <ExpandMore />}
+                    {!open ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                <Collapse in={!open} timeout="auto" unmountOnExit sx={{position:"absolute", backgroundColor:"#FAFAFE", width:"100%", top:"49px"}}>
+                <Collapse in={!open} timeout="auto" unmountOnExit sx={{position:"absolute", backgroundColor:"#FAFAFE", width:"100%", top:"49px", zIndex:"10"}}>
                   <List component="div" disablePadding>
                   <ListItem disablePadding>
                     <ListItemButton>
