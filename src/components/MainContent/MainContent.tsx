@@ -1,19 +1,25 @@
 import React from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Grid } from '@mui/material'
 
+import Content from './components/Content';
 import Core from './components/Core'
 
-export default function MainContent() {
+const queryClient = new QueryClient();
 
+export default function MainContent() {
+  
   return (
-    <Grid container spacing={2} sx={{display:"flex", flexDirection:["column-reverse", "unset"], justifyContent:["unset", "space-evenly"], paddingY:["1rem", "2rem"], paddingX:["0.5rem", "2rem"]}}>
-        <Grid item md={8} xs={12}>
-            Content
-        </Grid>
-        <Grid item md={3} xs={12}>
-            <Core />
-        </Grid>
-    </Grid>
+    <QueryClientProvider client={queryClient}>
+      <Grid container spacing={2} sx={{display:"flex", flexDirection:["column-reverse", "unset"], justifyContent:["unset", "space-evenly"], paddingY:["1rem", "2rem"], paddingX:["0.5rem", "2rem"]}}>
+          <Grid item md={8} xs={12}>
+              <Content />
+          </Grid>
+          <Grid item md={3} xs={12} sx={{paddingLeft:"0!important"}}>
+              <Core />
+          </Grid>
+      </Grid>
+    </QueryClientProvider>
   )
 }
