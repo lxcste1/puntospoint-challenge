@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
+import GetSize from '../../../../hooks/GetSize';
 import { fetchClients } from '../../../api/fetchClients';
 
 import { Collapse, Container, Grid, List, ListItem, ListItemButton } from '@mui/material'
@@ -29,6 +30,7 @@ export default function Core() {
     
     const [open, setOpen] = useState(true);
     const [view, setView] = useState('graphic');
+    const size = GetSize();
 
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
@@ -79,7 +81,7 @@ export default function Core() {
                     <List>
                         <ListItem disablePadding>
                             <ListItemButton onClick={handleClick} sx={{justifyContent:"end", borderRadius:"100px", padding:"12px", ":hover":{backgroundColor:"unset"}}}>
-                                {!open ? <ExpandLess /> : <ExpandMore />}
+                                {open ? <ExpandLess /> : <ExpandMore />}
                             </ListItemButton>
                         </ListItem>
                     </List>

@@ -12,11 +12,11 @@ export default function MainContent() {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <Grid container spacing={2} sx={{display:"flex", flexDirection:["column-reverse", "unset"], justifyContent:["unset", "space-evenly"], paddingY:["1rem", "2rem"], paddingX:["0.5rem", "2rem"]}}>
+      <Grid container spacing={2} sx={{display:"flex", flexDirection:["column-reverse", "unset"], justifyContent:["unset", "center"], paddingY:["1rem", "2rem"], paddingX:["0.5rem", "2rem"]}}>
           <Grid item md={8} xs={12}>
               <Content />
           </Grid>
-          <Grid item md={3} xs={12} sx={{paddingLeft:"0!important"}}>
+          <Grid item md={3} xs={12} sx={{paddingLeft:["","0!important"]}}>
               <Core />
           </Grid>
       </Grid>
