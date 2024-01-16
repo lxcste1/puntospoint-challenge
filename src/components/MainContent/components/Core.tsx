@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 
 import { fetchClients } from '../../../api/fetchClients';
 
@@ -24,15 +24,19 @@ export default function Core() {
         ['clients'],
         async () => await fetchClients()
     )
+
+    const queryClient = useQueryClient();
     
-    const [view, setView] = useState('graphic');
     const [open, setOpen] = useState(true);
+    const [view, setView] = useState('graphic');
 
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
         newView: string,
     ) => {
         setView(newView);
+        if (newView) queryClient.setQueryData('changeView', newView);
+        
     };
 
     const handleClick = () => {
@@ -41,26 +45,26 @@ export default function Core() {
 
     return (
         <Container sx={{padding:"0"}}>
-            <Grid container sx={{justifyContent:"space-between"}}>
+            <Grid container sx={{justifyContent:"space-between", alignItems:"center"}}>
                 <Grid item md={9}>
                     <ToggleButtonGroup
                         color="primary"
-                        value={view}
+                        value={queryClient.getQueryData('changeView') || 'graphic'}
                         exclusive
                         onChange={handleChange}
                         aria-label="View"
-                        sx={{borderRadius:"100px", padding:"3px", border:"1px solid #644BBA"}}
+                        sx={{borderRadius:"100px", padding:"3px", border:"1px solid #644BBA", width:"100%", justifyContent:"space-between"}}
                     >
                         <ToggleButton 
                             value="graphic"
-                            sx={{color:"#644BBA", borderRadius:"100px", border:"unset", "&.Mui-selected":{color:"#FFFFFF", backgroundColor:"#644BBA", borderRadius:"100px", ":hover":{backgroundColor:"#7059bf"}}, ":hover":{backgroundColor:"unset"}}}
+                            sx={{color:"#644BBA", textTransform:"capitalize", borderRadius:"100px", border:"unset", paddingY:"5px", "&.Mui-selected":{color:"#FFFFFF", backgroundColor:"#644BBA", borderRadius:"100px", ":hover":{backgroundColor:"#7059bf"}}, ":hover":{backgroundColor:"unset"}}}
                         >
                             <BarChartIcon />
                             Gráfico
                         </ToggleButton>
                         <ToggleButton
                             value="pulse"
-                            sx={{color:"#644BBA", borderRadius:"100px",border:"unset" , "&.Mui-selected":{color:"#FFFFFF", backgroundColor:"#644BBA", borderRadius:"100px", ":hover":{backgroundColor:"#7059bf"}}, ":hover":{backgroundColor:"unset"}}}
+                            sx={{color:"#644BBA", textTransform:"capitalize", borderRadius:"100px", border:"unset", paddingY:"5px", "&.Mui-selected":{color:"#FFFFFF", backgroundColor:"#644BBA", borderRadius:"100px", ":hover":{backgroundColor:"#7059bf"}}, ":hover":{backgroundColor:"unset"}}}
                         >
                             <StarHalfIcon/>
                             Pulso
