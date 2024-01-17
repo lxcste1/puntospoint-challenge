@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
-import GetSize from '../../../../hooks/GetSize';
 import { fetchClients } from '../../../api/fetchClients';
 
 import { Collapse, Container, Grid, List, ListItem, ListItemButton } from '@mui/material'
@@ -30,7 +29,6 @@ export default function Core() {
     
     const [open, setOpen] = useState(true);
     const [view, setView] = useState('graphic');
-    const size = GetSize();
 
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
@@ -55,7 +53,7 @@ export default function Core() {
                         exclusive
                         onChange={handleChange}
                         aria-label="View"
-                        sx={{borderRadius:"100px", padding:"3px", border:"1px solid #644BBA", width:"100%", justifyContent:"space-between"}}
+                        sx={{maxWidth:"200px", borderRadius:"100px", padding:"3px", border:"1px solid #644BBA", width:"100%", justifyContent:"space-between"}}
                     >
                         <ToggleButton 
                             value="graphic"

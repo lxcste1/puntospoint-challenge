@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import Chart7D from './components/Chart7D';
+
 import { Container, Grid, Button, ToggleButtonGroup, ToggleButton, Collapse } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -29,22 +31,24 @@ export default function Graphic() {
         {name:"Este mes"},
         {name:"6M"},
         {name:"YTD / YTG"},
+        {name:"1A"},
         {name:"MÁX"},
     ]  
 
     return (
-        <Container sx={{paddingX:["", "0"]}}>
-        <Grid container sx={{display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:"1rem"}}>
+        <Container sx={{paddingX:"0"}}>
+        <Grid container sx={{display:"flex", justifyContent:["center","space-between"], alignItems:"center", paddingTop:"1rem"}}>
             <Grid item md={10}>
                 <ToggleButtonGroup
                     color="primary"
                     value={btn}
                     exclusive
                     onChange={handleChange}
-                    aria-label="Platform">
-                        {btns.map((e) => <ToggleButton key={e.name} value={e.name} sx={{marginX:"1rem", padding:"6px 12px", fontSize:"14px", border:"none", borderRadius:"8px!important", color:"#1D192B", "&.Mui-selected":{color:"#1D192B", backgroundColor:"#E7DFF8"}}}>{e.name}</ToggleButton>)}
-                        <Button onClick={handleClick} sx={{position:"relative"}}>
-                            <EventIcon fontSize='small' />
+                    aria-label="View"
+                    sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
+                        {btns.map((e) => <ToggleButton key={e.name} value={e.name} sx={{marginX:"0.75rem", padding:"6px 12px", fontSize:"14px", border:"none", textTransform:"inherit", borderRadius:"8px!important", color:"#1D192B", "&.Mui-selected":{color:"#1D192B", backgroundColor:"#E7DFF8"}}}>{e.name}</ToggleButton>)}
+                        <Button onClick={handleClick} sx={{position:"relative", marginX:"1rem", padding:"6px 12px", fontSize:"14px", textTransform:"inherit", border:"none", borderRadius:"8px!important", color:"#1D192B", "&.Mui-selected":{color:"#1D192B", backgroundColor:"#E7DFF8"}}}>
+                            <EventIcon fontSize='small' sx={{marginRight:"5px", color:"#644BBA"}} />
                             Personalizado
                             <Collapse in={!open} sx={{position:"absolute", top:["", "40px"], left:["", "-15px"], backgroundColor:"#FAFAFE"}}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -58,6 +62,11 @@ export default function Graphic() {
                 <Button variant="text" startIcon={<RemoveRedEyeIcon />}>
                     Ver detalle
                 </Button>
+            </Grid>
+        </Grid>
+        <Grid container>
+            <Grid item>
+                {btn == '7D' && (<Chart7D />)}
             </Grid>
         </Grid>
         </Container>
