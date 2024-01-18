@@ -137,7 +137,7 @@ export default function Chart7D() {
                     </ToggleButtonGroup>
                 </Grid>
                 <Grid item sx={{width:"100%", display:"flex",justifyContent:"space-between", marginBottom:"1.5rem"}}>
-                    <Grid md={6}>
+                    <Grid item md={6}>
                         <ToggleButtonGroup
                             color="primary"
                             value={view}
@@ -173,7 +173,7 @@ export default function Chart7D() {
                             ))}
                         </ToggleButtonGroup>                        
                     </Grid>
-                    <Grid md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
+                    <Grid item md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
                         <ToggleButtonGroup
                             color="primary"
                             value={viewMoney}
