@@ -9,7 +9,7 @@ import DataChartClientCashback from './datasets/DataChartClientCashback';
 import DataChartTransactions from './datasets/DataChartTransactions';
 import DataChartTransactionsMoney from './datasets/DataChartTransactionsMoney';
 
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js';
+import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 import { Container, Grid, ToggleButtonGroup, ToggleButton } from '@mui/material';

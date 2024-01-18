@@ -8,7 +8,7 @@ import DataChartYTG from './datasets/DataChartYTG';
 
 import { Container, Grid, ToggleButtonGroup, ToggleButton } from '@mui/material';
 
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js';
+import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 ChartJS.register(

@@ -5,7 +5,7 @@ import FetchClientsToday from '../../../../../../api/fetchClientsToday';
 
 import DataChartToday from './datasets/DataChartToday';
 
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js';
+import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 import { Container, Grid, ToggleButtonGroup, ToggleButton } from '@mui/material';
