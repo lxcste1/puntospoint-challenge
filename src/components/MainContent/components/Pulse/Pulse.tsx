@@ -6,6 +6,8 @@ import { Container, Grid, Button, ToggleButtonGroup, ToggleButton, Collapse } fr
 
 import EventIcon from '@mui/icons-material/Event';
 
+import TagManager from 'react-gtm-module';
+
 export default function Pulse() {
     const [btn, setBtn] = useState('PULSO');
     const [open, setOpen] = useState(true);
@@ -15,6 +17,13 @@ export default function Pulse() {
         newBtn: string,
     ) => {
         setBtn(newBtn);
+        TagManager.dataLayer({
+            dataLayer:{
+                event: "customClickEvent",
+                category: "Button - Pulse view | Selected period of days",
+                label: btn            
+            }
+        })
     };
 
     const handleClick = () => {

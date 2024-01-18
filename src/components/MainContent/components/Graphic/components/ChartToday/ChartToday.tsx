@@ -10,6 +10,8 @@ import { Chart } from 'react-chartjs-2';
 
 import { Container, Grid, ToggleButtonGroup, ToggleButton } from '@mui/material';
 
+import TagManager from 'react-gtm-module';
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -35,6 +37,13 @@ export default function ChartToday() {
         newView: string,
     ) => {
         setView(newView);
+        TagManager.dataLayer({
+            dataLayer:{
+                event: "customClickEvent",
+                category: "Button - Graphic view | Clients and Transactions view",
+                label: view            
+            }
+        })
     };
 
     const handleChangeMoney = (
@@ -42,6 +51,13 @@ export default function ChartToday() {
         newViewMoney: string,
     ) => {
         setViewMoney(newViewMoney);
+        TagManager.dataLayer({
+            dataLayer:{
+                event: "customClickEvent",
+                category: "Button - Graphic view | Money and Cashback view",
+                label: viewMoney            
+            }
+        })
     };
 
     var options = {
