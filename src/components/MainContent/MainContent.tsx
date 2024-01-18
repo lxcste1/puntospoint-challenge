@@ -16,7 +16,7 @@ export default function MainContent() {
           <Grid item md={8} xs={12}>
               <Content />
           </Grid>
-          <Grid item md={3} xs={12} sx={{paddingLeft:["","0!important"]}}>
+          <Grid item md={3} xs={12} sx={{paddingLeft:["","0!important"], maxWidth:["100%", "400px"]}}>
               <Core />
           </Grid>
       </Grid>

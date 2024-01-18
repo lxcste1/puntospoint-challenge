@@ -37,7 +37,7 @@ export default function Graphic() {
 
     return (
         <Container sx={{paddingX:"0"}}>
-        <Grid container sx={{display:"flex", justifyContent:["center","space-between"], alignItems:"center", paddingTop:"1rem"}}>
+        <Grid container sx={{display:"flex", justifyContent:["center","space-between"], alignItems:"center", paddingTop:"1rem", marginBottom:"1.5rem"}}>
             <Grid item md={10}>
                 <ToggleButtonGroup
                     color="primary"
@@ -64,8 +64,8 @@ export default function Graphic() {
                 </Button>
             </Grid>
         </Grid>
-        <Grid container>
-            <Grid item>
+        <Grid container sx={{justifyContent:"center"}}>
+            <Grid item md={12} xs={11} >
                 {btn == '7D' && (<Chart7D />)}
             </Grid>
         </Grid>

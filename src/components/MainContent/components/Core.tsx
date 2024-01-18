@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
-import { fetchClients } from '../../../api/fetchClients';
+import FetchClients from '../../../api/fetchClients';
 
 import { Collapse, Container, Grid, List, ListItem, ListItemButton } from '@mui/material'
 import ToggleButton from '@mui/material/ToggleButton';
@@ -22,7 +22,7 @@ import Paper from '@mui/material/Paper';
 export default function Core() {
     const { data } = useQuery(
         ['clients'],
-        async () => await fetchClients()
+        async () => await FetchClients()
     )
 
     const queryClient = useQueryClient();
@@ -87,7 +87,7 @@ export default function Core() {
             </Grid>
             <Grid container>
                 <Collapse in={open} timeout="auto" unmountOnExit sx={{width:"100%"}}>
-                    {data?.clients?.map((e) =>
+                    {data?.map((e) =>
                     <Paper key={e.id} elevation={2} sx={{width:"100%", marginY:"1rem", borderRadius:"20px"}}>
                         <TableContainer>
                             <Table>
