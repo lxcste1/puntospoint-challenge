@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from 'react-query';
+import Graphic from './Graphic/Graphic';
 
 export default function Content() {
     const { data: changeView } = useQuery('changeView', () => 'graphic', {
@@ -8,7 +9,7 @@ export default function Content() {
 
     return (
         <div>
-            {changeView === 'graphic' ? <p>Gráfico</p> : <p>Pulso</p>}
+            {changeView === 'graphic' ? <Graphic /> : <p>Pulso</p>}
         </div>
     )
 }

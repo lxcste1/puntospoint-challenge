@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
-import { fetchClients } from '../../../api/fetchClients';
+import FetchClients from '../../../api/fetchClients';
 
 import { Collapse, Container, Grid, List, ListItem, ListItemButton } from '@mui/material'
 import ToggleButton from '@mui/material/ToggleButton';
@@ -22,7 +22,7 @@ import Paper from '@mui/material/Paper';
 export default function Core() {
     const { data } = useQuery(
         ['clients'],
-        async () => await fetchClients()
+        async () => await FetchClients()
     )
 
     const queryClient = useQueryClient();
@@ -53,7 +53,7 @@ export default function Core() {
                         exclusive
                         onChange={handleChange}
                         aria-label="View"
-                        sx={{borderRadius:"100px", padding:"3px", border:"1px solid #644BBA", width:"100%", justifyContent:"space-between"}}
+                        sx={{maxWidth:"200px", borderRadius:"100px", padding:"3px", border:"1px solid #644BBA", width:"100%", justifyContent:"space-between"}}
                     >
                         <ToggleButton 
                             value="graphic"
@@ -79,7 +79,7 @@ export default function Core() {
                     <List>
                         <ListItem disablePadding>
                             <ListItemButton onClick={handleClick} sx={{justifyContent:"end", borderRadius:"100px", padding:"12px", ":hover":{backgroundColor:"unset"}}}>
-                                {!open ? <ExpandLess /> : <ExpandMore />}
+                                {open ? <ExpandLess /> : <ExpandMore />}
                             </ListItemButton>
                         </ListItem>
                     </List>
@@ -87,7 +87,7 @@ export default function Core() {
             </Grid>
             <Grid container>
                 <Collapse in={open} timeout="auto" unmountOnExit sx={{width:"100%"}}>
-                    {data?.clients?.map((e) =>
+                    {data?.map((e) =>
                     <Paper key={e.id} elevation={2} sx={{width:"100%", marginY:"1rem", borderRadius:"20px"}}>
                         <TableContainer>
                             <Table>

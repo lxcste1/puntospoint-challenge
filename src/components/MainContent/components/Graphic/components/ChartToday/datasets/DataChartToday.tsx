@@ -1,0 +1,28 @@
+import React from 'react';
+
+export default function DataChartToday(data) {
+    
+    const dataChartToday = {
+        labels: data?.map(x => x.date),
+        datasets: [
+            {
+                label: 'Nuevos clientes',
+                data: data?.map(x => x.newClients),
+                borderWidth: 1,
+                backgroundColor:"#EB7635",
+                type: 'bar' as const,
+                order: 0
+            },
+            {
+                label: 'Compraron',
+                data: data?.map(x => x.sales),
+                borderWidth: 1,
+                backgroundColor: "#358DEB",
+                type: 'bar' as const,
+                order: 1
+            },             
+        ]       
+    }
+
+    return dataChartToday
+}
