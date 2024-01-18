@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
 import FetchClients from '../../../api/fetchClients';
@@ -18,17 +18,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TagManager from 'react-gtm-module';
 
 export default function Core() {
+    const [open, setOpen] = useState(true);
+    const [view, setView] = useState('graphic');
+
     const { data } = useQuery(
         ['clients'],
         async () => await FetchClients()
     )
 
     const queryClient = useQueryClient();
-    
-    const [open, setOpen] = useState(true);
-    const [view, setView] = useState('graphic');
 
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
@@ -36,7 +37,13 @@ export default function Core() {
     ) => {
         setView(newView);
         if (newView) queryClient.setQueryData('changeView', newView);
-        
+        TagManager.dataLayer({
+            dataLayer:{
+                event: "customClickEvent",
+                category: "Toggle button - Graphic and Pulse views",
+                label: view            
+            }
+        })
     };
 
     const handleClick = () => {

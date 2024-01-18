@@ -4,13 +4,12 @@ import Chart7D from './components/Chart7D/Chart7D';
 import ChartToday from './components/ChartToday/ChartToday';
 import ChartYTD from './components/ChartYTD-YTG/ChartYTD';
 
-import { Container, Grid, Button, ToggleButtonGroup, ToggleButton, Collapse } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { Container, Grid, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
 
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EventIcon from '@mui/icons-material/Event';
+
+import TagManager from 'react-gtm-module';
 
 
 
@@ -23,6 +22,13 @@ export default function Graphic() {
         newBtn: string,
     ) => {
         setBtn(newBtn);
+        TagManager.dataLayer({
+            dataLayer:{
+                event: "customClickEvent",
+                category: "Button - Graphic view | Selected period of days",
+                label: btn            
+            }
+        })
     };
 
     const handleClick = () => {
