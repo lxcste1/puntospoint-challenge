@@ -1,5 +1,6 @@
-{
-    "clients":[
+export default function FetchClientsToday() {
+
+    const clientsToday = [
         {
             "date": "00:00",
             "newClients": 5,
@@ -121,4 +122,5 @@
             "sales": 20
         }
     ]
+    return clientsToday
 }
