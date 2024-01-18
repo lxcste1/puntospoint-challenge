@@ -19,6 +19,7 @@ export default function DataChartTransactions(data) {
                 data: undefined,
                 borderWidth: 1,
                 backgroundColor: "#48454E",
+                pointRadius: 0,
                 type: 'line' as const,
                 order: 3        
             }           

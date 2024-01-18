@@ -47,7 +47,7 @@ export default function ChartYTD() {
         setViewMoney(newViewMoney);
     };
 
-        var options = {
+    var options = {
         maintainAspectRatio: false,
         responsive: true,
         scales: {
@@ -72,7 +72,7 @@ export default function ChartYTD() {
         <>
             <Grid container>
                 <Grid item sx={{width:"100%", display:"flex",justifyContent:"space-between", marginBottom:"1.5rem"}}>
-                    <Grid md={6}>
+                    <Grid item md={6}>
                         <ToggleButtonGroup
                             color="primary"
                             value={view}
@@ -108,7 +108,7 @@ export default function ChartYTD() {
                             ))}
                         </ToggleButtonGroup>                        
                     </Grid>
-                    <Grid md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
+                    <Grid item md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
                         <ToggleButtonGroup
                             color="primary"
                             value={viewMoney}

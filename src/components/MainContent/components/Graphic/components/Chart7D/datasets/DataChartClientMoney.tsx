@@ -11,6 +11,7 @@ export default function DataChartClientMoney(data) {
                 borderWidth: 2,
                 borderColor: "#EB3535",
                 backgroundColor: "#EB3535",
+                pointRadius: 0,
                 type: 'line' as const,
                 yAxisID: 'y1',
                 order: 0
@@ -21,6 +22,7 @@ export default function DataChartClientMoney(data) {
                 borderWidth: 2,
                 borderColor: "#7A35EB",
                 backgroundColor: "#7A35EB",
+                pointRadius: 0,
                 type: 'line' as const,
                 order: 1
             },            

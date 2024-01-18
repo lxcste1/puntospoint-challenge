@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Chart7D from './components/Chart7D/Chart7D';
 import ChartToday from './components/ChartToday/ChartToday';
+import ChartYTD from './components/ChartYTD-YTG/ChartYTD';
 
 import { Container, Grid, Button, ToggleButtonGroup, ToggleButton, Collapse } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,7 +11,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EventIcon from '@mui/icons-material/Event';
-import ChartYTD from './components/ChartYTD-YTG/ChartYTD';
+
 
 
 export default function Graphic() {
@@ -62,6 +63,9 @@ export default function Graphic() {
                                     textTransform:"inherit",
                                     borderRadius:"8px!important",
                                     color:"#1D192B",
+                                    "&.MuiToggleButtonGroup-firstButton":{
+                                        marginLeft:"0"
+                                    },
                                     "&.Mui-selected":{
                                         color:"#1D192B",
                                         backgroundColor:"#E7DFF8"
@@ -86,11 +90,6 @@ export default function Graphic() {
                             }}>
                                 <EventIcon fontSize='small' sx={{marginRight:"5px", color:"#644BBA"}} />
                                 Personalizado
-                                <Collapse in={!open} sx={{position:"absolute", top:["", "40px"], left:["", "-15px"], backgroundColor:"#FAFAFE"}}>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                            <DateCalendar />
-                                    </LocalizationProvider>
-                                </Collapse>
                         </Button>
                 </ToggleButtonGroup>
             </Grid>
@@ -110,7 +109,7 @@ export default function Graphic() {
             </Grid>
         </Grid>
         <Grid container sx={{justifyContent:"center"}}>
-            <Grid item md={12} xs={11} >
+            <Grid item md={12} xs={11}>
                 {btn == 'HOY' && (<ChartToday />)}
                 {btn == '7D' && (<Chart7D />)}
                 {btn == 'YTD / YTG' && <ChartYTD />}
