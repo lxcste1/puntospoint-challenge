@@ -12,8 +12,6 @@ import Paper from '@mui/material/Paper';
 
 export default function Tables(data) {
 
-    console.log(data)
-
     return (
         <Grid container sx={{marginTop:["unset","2rem"]}} spacing={[1,2]}>
             <Grid item md={3} xs={3}>
