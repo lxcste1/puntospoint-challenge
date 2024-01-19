@@ -108,6 +108,7 @@ export default function Graphic() {
                     padding:["3px 8px", "6px 12px"],
                     height:["min-content", "100%"],
                     fontSize:["12px","13px"],
+                    borderRadius:"8px!important"
                 }}
                 >
                     Ver detalle

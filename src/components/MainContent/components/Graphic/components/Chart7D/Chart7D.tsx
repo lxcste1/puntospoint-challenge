@@ -25,7 +25,6 @@ ChartJS.register(
 )
 
 export default function Chart7D() {
-    
     const [btn, setBtn] = useState('Todo');
     const [view, setView] = useState('Clientes')
     const [viewMoney, setViewMoney] = useState('')
@@ -105,112 +104,114 @@ export default function Chart7D() {
 
     return (
         <>
-            <Grid container>
-                <Grid item sx={{marginBottom:"1.5rem"}}>
-                    <ToggleButtonGroup
-                        color="primary"
-                        value={btn}
-                        exclusive
-                        onChange={handleChange}
-                        aria-label="View"
-                        sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
-                        {btns.map((e) => 
-                            <ToggleButton 
-                                key={e.name} 
-                                value={e.name} 
-                                sx={{
-                                    marginX:["2px", "0.75rem"],
-                                    padding:["3px 8px", "6px 12px"],
-                                    height:["min-content", "100%"],
-                                    fontSize:["12px","14px"],
-                                    border:"none",
-                                    textTransform:"inherit",
-                                    borderRadius:"8px!important",
-                                    color:"#1D192B",
-                                    "&.Mui-selected":{
-                                        color:"#1D192B",
-                                        backgroundColor:"#E7DFF8"
-                                        }
-                                    }}>
-                                    {e.name}
-                            </ToggleButton>)}
-                    </ToggleButtonGroup>
-                </Grid>
-                <Grid item sx={{width:"100%", display:"flex",justifyContent:"space-between", marginBottom:"1.5rem"}}>
-                    <Grid item md={6}>
+            <Container sx={{padding:"0"}}>
+                <Grid container>
+                    <Grid item sx={{marginBottom:"1.5rem"}}>
                         <ToggleButtonGroup
                             color="primary"
-                            value={view}
+                            value={btn}
                             exclusive
-                            onChange={handleChangeView}
+                            onChange={handleChange}
                             aria-label="View"
                             sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
-                            {[{name:"Clientes"}, {name:"Transacciones"}].map((e) => (
+                            {btns.map((e) => 
                                 <ToggleButton 
                                     key={e.name} 
                                     value={e.name} 
                                     sx={{
                                         marginX:["2px", "0.75rem"],
-                                        padding:["3px 8px","6px 12px"],
-                                        fontSize:["12px","14px"],
+                                        padding:["3px 8px", "6px 12px"],
                                         height:["min-content", "100%"],
-                                        border:"1px solid #79757F",
+                                        fontSize:["12px","14px"],
+                                        border:"none",
                                         textTransform:"inherit",
                                         borderRadius:"8px!important",
                                         color:"#1D192B",
-                                        "&.MuiToggleButtonGroup-lastButton":{
-                                            borderLeft:"1px solid #79757F",
-                                            marginLeft:"2px"
-                                        },
                                         "&.Mui-selected":{
                                             color:"#1D192B",
-                                            backgroundColor:"#E7DFF8",
-                                            border:"1px solid transparent",
-                                        }
-                                    }}>
-                                    {e.name}
-                                </ToggleButton>
-                            ))}
-                        </ToggleButtonGroup>                        
+                                            backgroundColor:"#E7DFF8"
+                                            }
+                                        }}>
+                                        {e.name}
+                                </ToggleButton>)}
+                        </ToggleButtonGroup>
                     </Grid>
-                    <Grid item md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
-                        <ToggleButtonGroup
-                            color="primary"
-                            value={viewMoney}
-                            exclusive
-                            onChange={handleChangeMoney}
-                            aria-label="View"
-                            sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
-                            {[{name:"Dinero"}, {name:"Cashback"}].map((e) => (
-                                <ToggleButton 
-                                    key={e.name} 
-                                    value={e.name} 
-                                    sx={{
-                                        marginX:["2px", "0.75rem"],
-                                        padding:["3px 8px","6px 12px"],
-                                        fontSize:["12px","14px"],
-                                        height:["min-content", "100%"],
-                                        border:"1px solid #79757F",
-                                        textTransform:"inherit",
-                                        borderRadius:"8px!important",
-                                        color:"#1D192B",
-                                        "&.MuiToggleButtonGroup-lastButton":{
-                                            borderLeft:"1px solid #79757F",
-                                            marginLeft:"2px"
-                                        },
-                                        "&.Mui-selected":{
+                    <Grid item sx={{width:"100%", display:"flex",justifyContent:"space-between", marginBottom:"1.5rem"}}>
+                        <Grid item md={6}>
+                            <ToggleButtonGroup
+                                color="primary"
+                                value={view}
+                                exclusive
+                                onChange={handleChangeView}
+                                aria-label="View"
+                                sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
+                                {[{name:"Clientes"}, {name:"Transacciones"}].map((e) => (
+                                    <ToggleButton 
+                                        key={e.name} 
+                                        value={e.name} 
+                                        sx={{
+                                            marginX:["2px", "0.75rem"],
+                                            padding:["3px 8px","6px 12px"],
+                                            fontSize:["12px","14px"],
+                                            height:["min-content", "100%"],
+                                            border:"1px solid #79757F",
+                                            textTransform:"inherit",
+                                            borderRadius:"8px!important",
                                             color:"#1D192B",
-                                            backgroundColor:"#E7DFF8",
-                                            border:"1px solid transparent",
-                                        }
-                                    }}>
-                                    {e.name}
-                                </ToggleButton>
-                            ))}
-                        </ToggleButtonGroup>  
+                                            "&.MuiToggleButtonGroup-lastButton":{
+                                                borderLeft:"1px solid #79757F",
+                                                marginLeft:"2px"
+                                            },
+                                            "&.Mui-selected":{
+                                                color:"#1D192B",
+                                                backgroundColor:"#E7DFF8",
+                                                border:"1px solid transparent",
+                                            }
+                                        }}>
+                                        {e.name}
+                                    </ToggleButton>
+                                ))}
+                            </ToggleButtonGroup>                        
+                        </Grid>
+                        <Grid item md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
+                            <ToggleButtonGroup
+                                color="primary"
+                                value={viewMoney}
+                                exclusive
+                                onChange={handleChangeMoney}
+                                aria-label="View"
+                                sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
+                                {[{name:"Dinero"}, {name:"Cashback"}].map((e) => (
+                                    <ToggleButton 
+                                        key={e.name} 
+                                        value={e.name} 
+                                        sx={{
+                                            marginX:["2px", "0.75rem"],
+                                            padding:["3px 8px","6px 12px"],
+                                            fontSize:["12px","14px"],
+                                            height:["min-content", "100%"],
+                                            border:"1px solid #79757F",
+                                            textTransform:"inherit",
+                                            borderRadius:"8px!important",
+                                            color:"#1D192B",
+                                            "&.MuiToggleButtonGroup-lastButton":{
+                                                borderLeft:"1px solid #79757F",
+                                                marginLeft:"2px"
+                                            },
+                                            "&.Mui-selected":{
+                                                color:"#1D192B",
+                                                backgroundColor:"#E7DFF8",
+                                                border:"1px solid transparent",
+                                            }
+                                        }}>
+                                        {e.name}
+                                    </ToggleButton>
+                                ))}
+                            </ToggleButtonGroup>  
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Container>
             <Container sx={{padding:"0"}}>
                 <Grid container sx={{justifyContent:"center"}}>
                     <Grid item md={12} xs={11} sx={{maxWidth:"100%", flexBasis:"100%"}}>
@@ -218,6 +219,13 @@ export default function Chart7D() {
                             {view == 'Transacciones' && <Chart type='bar' data={viewMoney == 'Dinero' ? dataChartTransactionsMoney : dataChartTransactions} options={options} height={400} />}
                     </Grid>            
                 </Grid>
+            </Container>
+            <Container sx={{padding:"0"}}>
+                <Grid container sx={{justifyContent:"center"}}>
+                    <Grid item md={12} xs={11} sx={{maxWidth:"100%", flexBasis:"100%"}}>
+
+                    </Grid>
+                </Grid>            
             </Container>
         </>
 

@@ -4,7 +4,7 @@ export default function FetchClientsToday() {
         {
             "date": "00:00",
             "newClients": 5,
-            "sales": 5
+            "sales": 5,
         },
         {
             "date": "01:00",
