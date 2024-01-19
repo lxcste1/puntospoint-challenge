@@ -1,6 +1,6 @@
 # Challenge Técnico - Puntospoint
 
-Este proyecto se desarrolló en NextJS, utilizando Typescript y la librería de CSS "Material UI". A continuación, encontrarás las instrucciones para configurar el proyecto, revisar los requerimientos y realizar pruebas en GTM.
+Este proyecto se desarrolló en NextJS, utilizando Typescript y la librería de CSS "Material UI". A continuación, se encuentran detalladas las instrucciones para configurar el proyecto, revisar los requerimientos y realizar pruebas en GTM.
 
 Link al proyecto final: [puntospoint-challenge.vercel.app](https://puntospoint-challenge.vercel.app/)
 
