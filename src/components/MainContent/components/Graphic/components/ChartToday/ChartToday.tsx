@@ -8,9 +8,11 @@ import DataChartToday from './datasets/DataChartToday';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
-import { Container, Grid, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { Container, Grid, ToggleButtonGroup, ToggleButton, Button } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 
 import TagManager from 'react-gtm-module';
+import Tables from './components/Tables';
 
 ChartJS.register(
     CategoryScale,
@@ -81,88 +83,106 @@ export default function ChartToday() {
     }
 
     return (
-        <>
-            <Grid container>
-                <Grid item sx={{width:"100%", display:"flex",justifyContent:"space-between", marginBottom:"1.5rem"}}>
-                    <Grid item md={6}>
-                        <ToggleButtonGroup
-                            color="primary"
-                            value={view}
-                            exclusive
-                            onChange={handleChangeView}
-                            aria-label="View"
-                            sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
-                            {[{name:"Clientes"}, {name:"Transacciones"}].map((e) => (
-                                <ToggleButton 
-                                    key={e.name} 
-                                    value={e.name} 
-                                    sx={{
-                                        marginX:["2px", "0.75rem"],
-                                        padding:["3px 8px","6px 12px"],
-                                        fontSize:["12px","14px"],
-                                        height:["min-content", "100%"],
-                                        border:"1px solid #79757F",
-                                        textTransform:"inherit",
-                                        borderRadius:"8px!important",
-                                        color:"#1D192B",
-                                        "&.MuiToggleButtonGroup-lastButton":{
-                                            borderLeft:"1px solid #79757F",
-                                            marginLeft:"2px"
-                                        },
-                                        "&.Mui-selected":{
+        <>  
+            <Container sx={{paddingX:"0!important"}}>
+                <Grid container>
+                    <Grid item sx={{width:"100%", display:"flex",justifyContent:"space-between", marginBottom:"1.5rem"}}>
+                        <Grid item md={6}>
+                            <ToggleButtonGroup
+                                color="primary"
+                                value={view}
+                                exclusive
+                                onChange={handleChangeView}
+                                aria-label="View"
+                                sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
+                                {[{name:"Clientes"}, {name:"Transacciones"}].map((e) => (
+                                    <ToggleButton 
+                                        key={e.name} 
+                                        value={e.name} 
+                                        sx={{
+                                            marginX:["2px", "0.75rem"],
+                                            padding:["3px 8px","6px 12px"],
+                                            fontSize:["12px","14px"],
+                                            height:["min-content", "100%"],
+                                            border:"1px solid #79757F",
+                                            textTransform:"inherit",
+                                            borderRadius:"8px!important",
                                             color:"#1D192B",
-                                            backgroundColor:"#E7DFF8",
-                                            border:"1px solid transparent",
-                                        }
-                                    }}>
-                                    {e.name}
-                                </ToggleButton>
-                            ))}
-                        </ToggleButtonGroup>                        
-                    </Grid>
-                    <Grid item md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
-                        <ToggleButtonGroup
-                            color="primary"
-                            value={viewMoney}
-                            exclusive
-                            onChange={handleChangeMoney}
-                            aria-label="View"
-                            sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
-                            {[{name:"Dinero"}, {name:"Cashback"}].map((e) => (
-                                <ToggleButton 
-                                    key={e.name} 
-                                    value={e.name} 
-                                    sx={{
-                                        marginX:["2px", "0.75rem"],
-                                        padding:["3px 8px","6px 12px"],
-                                        fontSize:["12px","14px"],
-                                        height:["min-content", "100%"],
-                                        border:"1px solid #79757F",
-                                        textTransform:"inherit",
-                                        borderRadius:"8px!important",
-                                        color:"#1D192B",
-                                        "&.MuiToggleButtonGroup-lastButton":{
-                                            borderLeft:"1px solid #79757F",
-                                            marginLeft:"2px"
-                                        },
-                                        "&.Mui-selected":{
+                                            "&.MuiToggleButtonGroup-lastButton":{
+                                                borderLeft:"1px solid #79757F",
+                                                marginLeft:"2px"
+                                            },
+                                            "&.Mui-selected":{
+                                                color:"#1D192B",
+                                                backgroundColor:"#E7DFF8",
+                                                border:"1px solid transparent",
+                                            }
+                                        }}>
+                                        {e.name}
+                                    </ToggleButton>
+                                ))}
+                            </ToggleButtonGroup>                        
+                        </Grid>
+                        <Grid item md={6} sx={{display:"flex", justifyContent:["", "end"]}}>
+                            <ToggleButtonGroup
+                                color="primary"
+                                value={viewMoney}
+                                exclusive
+                                onChange={handleChangeMoney}
+                                aria-label="View"
+                                sx={{flexWrap:["wrap","nowrap"], justifyContent:["center", "unset"]}}>
+                                {[{name:"Dinero"}, {name:"Cashback"}].map((e) => (
+                                    <ToggleButton 
+                                        key={e.name} 
+                                        value={e.name} 
+                                        sx={{
+                                            marginX:["2px", "0.75rem"],
+                                            padding:["3px 8px","6px 12px"],
+                                            fontSize:["12px","14px"],
+                                            height:["min-content", "100%"],
+                                            border:"1px solid #79757F",
+                                            textTransform:"inherit",
+                                            borderRadius:"8px!important",
                                             color:"#1D192B",
-                                            backgroundColor:"#E7DFF8",
-                                            border:"1px solid transparent",
-                                        }
-                                    }}>
-                                    {e.name}
-                                </ToggleButton>
-                            ))}
-                        </ToggleButtonGroup>  
+                                            "&.MuiToggleButtonGroup-lastButton":{
+                                                borderLeft:"1px solid #79757F",
+                                                marginLeft:"2px"
+                                            },
+                                            "&.Mui-selected":{
+                                                color:"#1D192B",
+                                                backgroundColor:"#E7DFF8",
+                                                border:"1px solid transparent",
+                                            }
+                                        }}>
+                                        {e.name}
+                                    </ToggleButton>
+                                ))}
+                            </ToggleButtonGroup>  
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-            <Container>
+            </Container>
+            <Container sx={{paddingX:"0!important"}}>
                 <Grid container sx={{justifyContent:"center"}}>
                     <Grid item md={12} xs={11}>
                            {view == 'Clientes' && <Chart type='bar' data={dataChartToday} options={options} height={400} />}
                     </Grid>            
+                </Grid>
+            </Container>
+            <Container sx={{paddingX:"0!important"}}>
+                <Grid container sx={{justifyContent:"end"}}>
+                    <Grid item>
+                        <Button startIcon={<DownloadIcon />} sx={{borderRadius:"8px!important"}}>
+                            Exportar tabla
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Container>
+            <Container sx={{paddingX:"0!important"}}>
+                <Grid container sx={{justifyContent:"center"}}>
+                    <Grid item md={9} xs={12}>
+                        <Tables data={data}/>
+                    </Grid>
                 </Grid>
             </Container>
         </>
