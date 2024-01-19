@@ -13,6 +13,7 @@ import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend, Point
 import { Chart } from 'react-chartjs-2';
 
 import { Container, Grid, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import Tables from './components/Tables';
 
 ChartJS.register(
     CategoryScale,
@@ -223,7 +224,7 @@ export default function Chart7D() {
             <Container sx={{padding:"0"}}>
                 <Grid container sx={{justifyContent:"center"}}>
                     <Grid item md={12} xs={11} sx={{maxWidth:"100%", flexBasis:"100%"}}>
-
+                        <Tables data={data} />
                     </Grid>
                 </Grid>            
             </Container>

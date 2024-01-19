@@ -180,7 +180,7 @@ export default function ChartToday() {
             </Container>
             <Container sx={{paddingX:"0!important"}}>
                 <Grid container sx={{justifyContent:"center"}}>
-                    <Grid item md={9}>
+                    <Grid item md={9} xs={12}>
                         <Tables data={data}/>
                     </Grid>
                 </Grid>

@@ -16,8 +16,6 @@ export default function Tables(data) {
     let amountClients = 79931;
     let totalClients = 0;
 
-    console.log(data)
-
     const getRange = (hour) => {
         const hours = parseInt(hour.split(":")[0], 10);
         const initialRange = Math.floor(hours / 4) * 4;
@@ -43,14 +41,14 @@ export default function Tables(data) {
     })
 
     return (
-        <Grid container sx={{marginTop:["unset","2rem"]}} spacing={2}>
-            <Grid item md={3}>
+        <Grid container sx={{marginTop:["unset","2rem"]}} spacing={[1,2]}>
+            <Grid item md={3} xs={3}>
                 <TableContainer component={Paper} sx={{backgroundColor:"#E6E1E6", borderRadius:"10px"}}>
                     <Typography variant="subtitle2" gutterBottom sx={{textAlign:"center", marginTop:"1rem", marginBottom:"0"}}>HOY</Typography>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>
+                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>
                                     Horas
                                 </TableCell>
                             </TableRow>
@@ -58,7 +56,7 @@ export default function Tables(data) {
                         <TableBody>
                             {Object.keys(newClientsAmount).map(range => (
                                 <TableRow key={range}>
-                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>
+                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>
                                         {range}
                                     </TableCell>
                                 </TableRow>
@@ -67,32 +65,31 @@ export default function Tables(data) {
                     </Table>
                 </TableContainer>
             </Grid>
-            <Grid item md={9}>
+            <Grid item md={9} xs={9}>
                 <TableContainer component={Paper} sx={{backgroundColor:"#E6E1E6", borderRadius:"10px"}}>
                 <Typography variant="subtitle2" gutterBottom sx={{textAlign:"center", marginY:"1rem", marginBottom:"0"}}>Clientes</Typography>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>Column 1</TableCell>
-                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>Column 2</TableCell>
-                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>Column 3</TableCell>
-                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>Total</TableCell>
+                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>Column 1</TableCell>
+                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>Column 2</TableCell>
+                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>Column 3</TableCell>
+                                <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>Total</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {Object.keys(newClientsAmount).map(range => (
-    
                                 <TableRow key={range}>
-                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>
+                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>
                                         {newClientsAmount[range]}
                                     </TableCell>
-                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>
+                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>
                                         {clientSalesAmount[range]}
                                     </TableCell>
-                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>
+                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>
                                         {newClientsAmount[range] + clientSalesAmount[range] + amountClients}
                                     </TableCell>
-                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"]}}>
+                                    <TableCell sx={{border:"unset", textAlign:"center", padding:["5px","16px"], fontSize:["11px","14px"], ":hover":{backgroundColor:"#D6D1D6"}}}>
                                         {totalClients}
                                     </TableCell>
                                 </TableRow>                             
